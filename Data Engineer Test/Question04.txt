@@ -1,0 +1,7 @@
+4.จากข้อมูลนี้ บริษัทมีค่าสูญเสียโอกาสเป็นเงินเท่าไร 
+From Information of Data. Please summary lost opportunity of your company?  
+ANSWER 
+ 
+SELECT SUM(der_total_order_price) AS Total_lost
+FROM Customer_Order
+WHERE  order_status_code IN (Canceled,Declined) ;

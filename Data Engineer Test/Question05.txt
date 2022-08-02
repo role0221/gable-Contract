@@ -1,0 +1,10 @@
+5.ส่งรายงานสินค้าขายดี top 5 ประจำเดือนให้หัวหน้าฝ่ายขาย 
+Please provide SQL statement to find the best seller of the top five product in every month?  (hint: rank, product name, qty) 
+ANSWER 
+ 
+SELECT product_id, COUNT(DISTINCT order_id) , MAX(qty) AS Totalqty
+FROM Customer_Order_Product
+GROUP BY product_id
+ORDER BY Totalqty DESC
+LIMIT 5;
+

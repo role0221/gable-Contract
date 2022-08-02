@@ -1,0 +1,9 @@
+1.ใครเป็นลูกค้าที่ดีที่สุด คือเป็นผู้ที่มียอดชื้อมากที่สุด
+Who are the best customer that highest order of your company?  
+ANSWER 
+ 
+SELECT customer_id , COUNT(DISTINCT order_id) , MAX(der_total_order_price) AS Total
+FROM Customer_Order
+WHERE NOT order_status_code IN (Canceled,Declined) 
+GROUP BY customer_id
+ORDER BY Total DESC;

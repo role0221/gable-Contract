@@ -1,0 +1,12 @@
+2.ถ้าต้องการเรียกเก็บเงินจากลูกค้า Meaghan ต้องเรียกเก็บเงินเป็นจำนวนเท่าไรพร้อมทั้งเขียน sql 
+Provide SQL Statement for invoice to Mr.Meaghan? 
+ANSWER 
+ 
+ 
+SELECT customer_id , COUNT(DISTINCT order_id) , SUM(der_total_order_price) AS Total
+FROM Customer_Order
+WHERE customer_id IN (SELECT DISTINCT customer_id
+                                             FROM Customer
+                                             WHERE first_name = “Meaghan”)
+GROUP BY customer_id
+ORDER BY Total DESC;
